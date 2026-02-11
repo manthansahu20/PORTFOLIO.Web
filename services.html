@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Services | Manthan Sahu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Manthan<span class="cyan">.dev</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="about.html">👨‍💻 About</a></li>
+                <li><a href="skills.html">🚀 Skills</a></li>
+                <li><a href="projects.html">📂 Projects</a></li>
+                <li><a href="services.html" class="active">🛠️ Services</a></li>
+                <li><a href="contact.html" class="btn-glow">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section page-header">
+        <div class="container">
+            <h2 class="section-title center-title">What I <span class="cyan">Offer</span> 💎</h2>
+            <div class="grid-container">
+                
+                <div class="glass-card" data-tilt>
+                    <i class="fas fa-laptop-code" style="font-size: 3.5rem; color: #64ffda; margin-bottom: 20px;"></i>
+                    <h3>Full Stack Dev</h3>
+                    <p style="color: #8892b0;">End-to-end web applications built with modern technologies.</p>
+                </div>
+
+                <div class="glass-card" data-tilt>
+                    <i class="fas fa-microchip" style="font-size: 3.5rem; color: #64ffda; margin-bottom: 20px;"></i>
+                    <h3>C++ Optimization</h3>
+                    <p style="color: #8892b0;">High-performance logic and system programming.</p>
+                </div>
+
+                <div class="glass-card" data-tilt>
+                    <i class="fab fa-python" style="font-size: 3.5rem; color: #64ffda; margin-bottom: 20px;"></i>
+                    <h3>Python Scripts</h3>
+                    <p style="color: #8892b0;">Automation, Scraping, and Data Processing.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+    <script>VanillaTilt.init(document.querySelectorAll(".glass-card"), { max: 15, speed: 400, glare: true, "max-glare": 0.1 });</script>
+</body>
+</html>
