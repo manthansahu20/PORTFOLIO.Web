@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projects | Manthan Sahu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Manthan<span class="cyan">.dev</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="about.html">👨‍💻 About</a></li>
+                <li><a href="skills.html">🚀 Skills</a></li>
+                <li><a href="projects.html" class="active">📂 Projects</a></li>
+                <li><a href="services.html">🛠️ Services</a></li>
+                <li><a href="contact.html" class="btn-glow">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section page-header">
+        <div class="container">
+            <h2 class="section-title center-title">GitHub <span class="cyan">Archive</span> 🗂️</h2>
+            <div id="loading" class="center-title" style="color: #64ffda; font-size: 1.5rem;">
+                <i class="fas fa-spinner fa-spin"></i> Loading from GitHub...
+            </div>
+            <div id="repo-grid" class="grid-container" style="margin-top: 50px;"></div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Fetch Logic directly embedded or in script.js
+        async function fetchRepos() {
+            const container = document.getElementById('repo-grid');
+            const loader = document.getElementById('loading');
+            try {
+                const res = await fetch('https://api.github.com/users/manthansahu20/repos?sort=updated');
+                const repos = await res.json();
+                loader.style.display = 'none';
+                repos.forEach(repo => {
+                    const card = document.createElement('div');
+                    card.className = 'project-card-glow';
+                    card.innerHTML = `
+                        <i class="far fa-folder folder-icon"></i>
+                        <h3 style="color:#e6f1ff; margin-bottom:10px;">${repo.name}</h3>
+                        <p style="color:#8892b0; font-size:0.9rem; margin-bottom:20px;">${repo.description || 'Awesome project by Manthan.'}</p>
+                        <div class="repo-stats">
+                            <span><i class="fas fa-code"></i> ${repo.language || 'Code'}</span>
+                            <span><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
+                            <a href="${repo.html_url}" target="_blank" style="margin-left:auto; color:#64ffda;"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (e) { loader.innerText = 'Error loading projects.'; }
+        }
+        fetchRepos();
+    </script>
+</body>
+</html>
